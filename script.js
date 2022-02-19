@@ -6,6 +6,21 @@ const closeModalBtn = document.querySelector('.close-modal');
 //const openModalBtns = document.querySelector('show-modal'); //return only first element selected
 const openModalBtns = document.querySelectorAll('.show-modal'); //return node list
 
+const openModal = function () {
+  console.log('Button clickced');
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+const closeModal = () => {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
 for (let i = 0; i < openModalBtns.length; i++) {
   console.log(openModalBtns[i]);
+  openModalBtns[i].addEventListener('click', openModal);
 }
+
+closeModalBtn.addEventListener('click', closeModal);
+
+overlay.addEventListener('click', closeModal);
